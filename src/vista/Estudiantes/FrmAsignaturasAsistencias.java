@@ -50,13 +50,13 @@ public class FrmAsignaturasAsistencias extends javax.swing.JFrame {
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, -1, -1));
 
         lstMatriculadas.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            String[] strings = { "Presente", "Presente", "Presente", "Presente", "Presente", "Presente", "Presente", "Presente", "Presente", "Presente", "Presente", "Presente", "Ausente", "Ausente", "Presente", "Ausente", "Ausente", "Presente", "Presente", "Presente", "Presente", "Presente", "Presente", "Presente", "Presente", "Presente" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
         jScrollPane1.setViewportView(lstMatriculadas);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 100, 100, 320));
+        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 100, 90, 320));
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
         jPanel2.setLayout(new java.awt.GridBagLayout());
@@ -67,16 +67,16 @@ public class FrmAsignaturasAsistencias extends javax.swing.JFrame {
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 30, 260, 30));
 
         lstMatriculadas1.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            String[] strings = { "Estructura de Datos", "Base de Datos", "Requisitos de Software", "Estadística Analítica", "Arquitectura de Ordenadores" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
         jScrollPane2.setViewportView(lstMatriculadas1);
 
-        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, 100, 330));
+        jPanel1.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, 170, 330));
 
         jLabel3.setText("Asistencias");
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 70, -1, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 70, -1, -1));
 
         jLabel4.setText("Estado");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 90, -1, -1));
