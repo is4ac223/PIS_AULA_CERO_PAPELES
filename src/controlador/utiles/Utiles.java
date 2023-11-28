@@ -73,7 +73,7 @@ public class Utiles {
 
     public static boolean compararFechas(Date fechaInicio, Date fechaFin) {
         // Comparar las fechas
-        return !fechaInicio.before(fechaFin);
+        return fechaInicio.before(fechaFin);
     }
 
     //METODO PARA VERIFICAR QUE EL USUARIO MANDA UN DOUBLE VALIDO
@@ -88,7 +88,7 @@ public class Utiles {
         }
     }
     
-    public static boolean verificarCodigo(String codigo) {
+    public static boolean verificarCelular(String codigo) {
         // Verificar si la cadena tiene exactamente 10 caracteres
         if (codigo.length() != 10) {
             return false;
