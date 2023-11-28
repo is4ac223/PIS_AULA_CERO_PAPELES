@@ -9,5 +9,5 @@ package controlador;
  * @author Usuario iTC
  */
 public class Admin {
-    
+    //potaxio
 }
