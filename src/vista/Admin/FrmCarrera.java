@@ -4,12 +4,53 @@
  */
 package vista.Admin;
 
+import controlador.utiles.Utiles;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author mrbingus
  */
 public class FrmCarrera extends javax.swing.JFrame {
 
+    public Boolean validar(){
+        if (!txtNombre.getText().trim().isEmpty() &&
+            !txtDuracion.getText().trim().isEmpty() 
+                ){
+            return true;
+        } else {
+            return false;
+        }
+    }    
+    
+
+    public void guardar(){
+    if(validar()){
+            if (Utiles.validarDouble(txtDuracion.getText())) {
+                JOptionPane.showMessageDialog(null, "Se ejecutara la accion");
+            } else {
+                JOptionPane.showMessageDialog(null, "Ingrese un double correcto en la duracion");
+            }
+
+        }else{
+            JOptionPane.showMessageDialog(null, "Falta llenar campos");
+        }
+    }
+    
+    public void modificar(){
+    if(validar()){
+            if (Utiles.validarDouble(txtDuracion.getText())) {
+                JOptionPane.showMessageDialog(null, "Se ejecutara la accion");
+            } else {
+                JOptionPane.showMessageDialog(null, "Ingrese un double correcto en la duracion");
+            }
+
+        }else{
+            JOptionPane.showMessageDialog(null, "Falta llenar campos");
+        }
+    }    
+    
+    
     /**
      * Creates new form FrmAsignaturas
      */
@@ -61,6 +102,11 @@ public class FrmCarrera extends javax.swing.JFrame {
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, 420, 200));
 
         btnGuardar.setText("Guardar");
+        btnGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardarActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 60, 90, -1));
 
         btnModificar.setText("Modificar");
@@ -97,8 +143,20 @@ public class FrmCarrera extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
-        // TODO add your handling code here:
+        try {
+            modificar();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
     }//GEN-LAST:event_btnModificarActionPerformed
+
+    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
+        try {
+            guardar();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }//GEN-LAST:event_btnGuardarActionPerformed
 
     /**
      * @param args the command line arguments
