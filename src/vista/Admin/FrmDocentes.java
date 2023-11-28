@@ -93,7 +93,7 @@ public class FrmDocentes extends javax.swing.JFrame {
         jLabel1.setText("DOCENTES");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 10, -1, -1));
 
-        jLabel2.setText("Clular");
+        jLabel2.setText("Celular:");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 180, -1, -1));
 
         jLabel3.setText("Apellido:");

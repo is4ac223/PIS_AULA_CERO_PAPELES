@@ -43,8 +43,6 @@ public class FrmAsignaturas extends javax.swing.JFrame {
         btnModificar = new javax.swing.JButton();
         btnBorrar = new javax.swing.JButton();
         btnBuscar = new javax.swing.JButton();
-        txtFechaInicio = new javax.swing.JTextField();
-        txtFechaFIn = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -55,6 +53,8 @@ public class FrmAsignaturas extends javax.swing.JFrame {
         tblListaAsignaturas = new javax.swing.JTable();
         jLabel6 = new javax.swing.JLabel();
         btnAsignar = new javax.swing.JButton();
+        jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        jDateChooser2 = new com.toedter.calendar.JDateChooser();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -92,8 +92,6 @@ public class FrmAsignaturas extends javax.swing.JFrame {
 
         btnBuscar.setText("Buscar");
         jPanel1.add(btnBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 170, 90, -1));
-        jPanel1.add(txtFechaInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 100, 130, -1));
-        jPanel1.add(txtFechaFIn, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 140, 130, -1));
 
         jLabel1.setText("ASIGNATURAS");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 10, -1, -1));
@@ -136,6 +134,8 @@ public class FrmAsignaturas extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnAsignar, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 380, -1, -1));
+        jPanel1.add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 100, 130, -1));
+        jPanel1.add(jDateChooser2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 140, 130, -1));
 
         getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
 
@@ -191,6 +191,8 @@ public class FrmAsignaturas extends javax.swing.JFrame {
     private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnGuardar;
     private javax.swing.JButton btnModificar;
+    private com.toedter.calendar.JDateChooser jDateChooser1;
+    private com.toedter.calendar.JDateChooser jDateChooser2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -202,8 +204,6 @@ public class FrmAsignaturas extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable tblListaAsignaturas;
     private javax.swing.JTable tblListaDocentesAsig;
-    private javax.swing.JTextField txtFechaFIn;
-    private javax.swing.JTextField txtFechaInicio;
     private javax.swing.JTextField txtNombreAsg;
     // End of variables declaration//GEN-END:variables
 }
