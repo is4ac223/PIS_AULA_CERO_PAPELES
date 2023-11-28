@@ -4,6 +4,8 @@
  */
 package vista.Admin;
 
+import controlador.utiles.Utiles;
+import javax.swing.JOptionPane;
 import vista.lista.tabla.ModeloTablaEstudiantes;
 
 /**
@@ -13,6 +15,49 @@ import vista.lista.tabla.ModeloTablaEstudiantes;
 public class FrmEstudiantes extends javax.swing.JFrame {
 
     private ModeloTablaEstudiantes modelotabla = new ModeloTablaEstudiantes();
+    
+    public Boolean validar(){
+        if (!txtApellido.getText().trim().isEmpty() &&
+                !txtNombre.getText().trim().isEmpty() &&
+                !txtDNI.getText().trim().isEmpty() &&
+                !txtCelular.getText().trim().isEmpty()){
+            return true;
+        } else {
+            return false;
+        }
+    }
+    
+    public void guardar(){
+    if(validar()){
+        if (Utiles.validadorDeCedula(txtDNI.getText())) {
+            if (Utiles.verificarCelular(txtCelular.getText())) {
+                JOptionPane.showMessageDialog(null, "Se ejecutara la accion");
+            } else {
+                JOptionPane.showMessageDialog(null, "Celular invalido");
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "DNI invalido");
+        }
+        }else{
+            JOptionPane.showMessageDialog(null, "Falta llenar campos");
+        }
+    }
+    
+    public void modificar(){
+    if(validar()){
+        if (Utiles.validadorDeCedula(txtDNI.getText())) {
+            if (Utiles.verificarCelular(txtCelular.getText())) {
+                JOptionPane.showMessageDialog(null, "Se ejecutara la accion");
+            } else {
+                JOptionPane.showMessageDialog(null, "Celular invalido");
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "DNI invalido");
+        }
+        }else{
+            JOptionPane.showMessageDialog(null, "Falta llenar campos");
+        }
+    }
     
     public FrmEstudiantes() {
         initComponents();
@@ -48,7 +93,7 @@ public class FrmEstudiantes extends javax.swing.JFrame {
         txtNombre = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        txtDNI1 = new javax.swing.JTextField();
+        txtDNI = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -71,6 +116,11 @@ public class FrmEstudiantes extends javax.swing.JFrame {
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, 420, 200));
 
         btnGuardar.setText("Guardar");
+        btnGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardarActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 60, 90, -1));
 
         btnModificar.setText("Modificar");
@@ -113,7 +163,7 @@ public class FrmEstudiantes extends javax.swing.JFrame {
 
         jLabel6.setText("DNI:");
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, -1, -1));
-        jPanel1.add(txtDNI1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 140, 130, -1));
+        jPanel1.add(txtDNI, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 140, 130, -1));
 
         getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
 
@@ -122,11 +172,25 @@ public class FrmEstudiantes extends javax.swing.JFrame {
 
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
         // TODO add your handling code here:
+        try {
+            modificar();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
     }//GEN-LAST:event_btnModificarActionPerformed
 
     private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNombreActionPerformed
+
+    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
+        // TODO add your handling code here:
+        try {
+            guardar();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }//GEN-LAST:event_btnGuardarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -182,7 +246,7 @@ public class FrmEstudiantes extends javax.swing.JFrame {
     private javax.swing.JTable tblListaEstudiantes;
     private javax.swing.JTextField txtApellido;
     private javax.swing.JTextField txtCelular;
-    private javax.swing.JTextField txtDNI1;
+    private javax.swing.JTextField txtDNI;
     private javax.swing.JTextField txtNombre;
     // End of variables declaration//GEN-END:variables
 }

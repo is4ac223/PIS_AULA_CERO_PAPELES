@@ -4,6 +4,8 @@
  */
 package vista.Admin;
 
+import controlador.utiles.Utiles;
+import javax.swing.JOptionPane;
 import vista.lista.tabla.ModeloTablaAsignatura;
 import vista.lista.tabla.ModeloTablaDocentes;
 
@@ -15,7 +17,48 @@ public class FrmAsignaturas extends javax.swing.JFrame {
 
   private ModeloTablaAsignatura modelotabla = new ModeloTablaAsignatura();
   private ModeloTablaDocentes modelotabladoc = new ModeloTablaDocentes();
+  
+    public Boolean validar(){
+        if (!txtNombreAsg.getText().trim().isEmpty() &&
+                !(jdtFechaInicio.getDate()  == null) &&
+                !(jdtFechaFin.getDate()  == null)
+                ){
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public void guardar(){
+    if(validar()){
+            if (Utiles.compararFechas(jdtFechaInicio.getDate(), jdtFechaFin.getDate())) {
+                JOptionPane.showMessageDialog(null, "Se ejecutara la accion");
+            } else {
+                JOptionPane.showMessageDialog(null, "La fecha de fin no puede ser menor que la de inicio");
+            }
+
+        }else{
+            JOptionPane.showMessageDialog(null, "Falta llenar campos");
+        }
+    }
+
+    public void modificar(){
+    if(validar()){
+            if (Utiles.compararFechas(jdtFechaInicio.getDate(), jdtFechaFin.getDate())) {
+                JOptionPane.showMessageDialog(null, "Se ejecutara la accion");
+            } else {
+                JOptionPane.showMessageDialog(null, "La fecha de fin no puede ser menor que la de inicio");
+            }
+
+        }else{
+            JOptionPane.showMessageDialog(null, "Falta llenar campos");
+        }
+    }    
     
+    
+
+  
+      
     public FrmAsignaturas() {
         initComponents();
         cargarTablaAsign();
@@ -53,8 +96,8 @@ public class FrmAsignaturas extends javax.swing.JFrame {
         tblListaAsignaturas = new javax.swing.JTable();
         jLabel6 = new javax.swing.JLabel();
         btnAsignar = new javax.swing.JButton();
-        jDateChooser1 = new com.toedter.calendar.JDateChooser();
-        jDateChooser2 = new com.toedter.calendar.JDateChooser();
+        jdtFechaInicio = new com.toedter.calendar.JDateChooser();
+        jdtFechaFin = new com.toedter.calendar.JDateChooser();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -77,6 +120,11 @@ public class FrmAsignaturas extends javax.swing.JFrame {
         jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 70, 240, 290));
 
         btnGuardar.setText("Guardar");
+        btnGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGuardarActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 50, 90, -1));
 
         btnModificar.setText("Modificar");
@@ -134,8 +182,8 @@ public class FrmAsignaturas extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnAsignar, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 380, -1, -1));
-        jPanel1.add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 100, 130, -1));
-        jPanel1.add(jDateChooser2, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 140, 130, -1));
+        jPanel1.add(jdtFechaInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 100, 130, -1));
+        jPanel1.add(jdtFechaFin, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 140, 130, -1));
 
         getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
 
@@ -144,11 +192,25 @@ public class FrmAsignaturas extends javax.swing.JFrame {
 
     private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
         // TODO add your handling code here:
+        try {
+            modificar();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
     }//GEN-LAST:event_btnModificarActionPerformed
 
     private void btnAsignarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAsignarActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnAsignarActionPerformed
+
+    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
+        // TODO add your handling code here:
+        try {
+            guardar();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+    }//GEN-LAST:event_btnGuardarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -191,8 +253,6 @@ public class FrmAsignaturas extends javax.swing.JFrame {
     private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnGuardar;
     private javax.swing.JButton btnModificar;
-    private com.toedter.calendar.JDateChooser jDateChooser1;
-    private com.toedter.calendar.JDateChooser jDateChooser2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -202,6 +262,8 @@ public class FrmAsignaturas extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private com.toedter.calendar.JDateChooser jdtFechaFin;
+    private com.toedter.calendar.JDateChooser jdtFechaInicio;
     private javax.swing.JTable tblListaAsignaturas;
     private javax.swing.JTable tblListaDocentesAsig;
     private javax.swing.JTextField txtNombreAsg;
